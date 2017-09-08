@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import dagger.ObjectGraph
 import di.ParserModule
 import parsers.RefParserMain
-import security.ApiKey
 import java.io.IOException
 import javax.inject.Inject
 import javax.servlet.ServletException
@@ -19,7 +18,7 @@ class GamesServlet : HttpServlet() {
 
     companion object {
         const val VERSION_KEY = "version"
-        const val VERSION_VALUE = "1.0/310517"
+        const val VERSION_VALUE = "1.0/080917"
         const val UTF = "utf-8"
         const val CONTENT_TYPE_JSON = "application/json"
         const val CONTENT_TYPE_TEXT = "text/plain"
@@ -42,7 +41,9 @@ class GamesServlet : HttpServlet() {
 
         val authHeader = req.getHeader(AUTH_HEADER)
 
-        if (authHeader == null || authHeader != ApiKey.API_KEY) {
+
+//        if (authHeader == null || authHeader != ApiKey.API_KEY) { // do not demand an api key for now
+        if (false) {
             resp.setStatus(HttpServletResponse.SC_FORBIDDEN)
             resp.contentType = CONTENT_TYPE_TEXT
             resp.writer.print(NOT_AUTHED_MSG)

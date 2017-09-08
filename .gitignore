@@ -47,5 +47,3 @@ atlassian-ide-plugin.xml
 
 build/
 .idea
-
-refapi/src/main/java/security/ApiKey.kt
