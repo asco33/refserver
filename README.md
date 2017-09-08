@@ -3,7 +3,7 @@
 Backend for the RefsBerlin app (https://github.com/asco33/refsberlin). 
 
 ## Building the project
-To build the project you have to provide the missing `ApiKey` class. 
+No further steps required to build the project, just run it.
 
 
 ## License
