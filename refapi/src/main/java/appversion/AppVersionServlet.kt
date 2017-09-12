@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse
 class AppVersionServlet : HttpServlet() {
 
     companion object {
-        const val LATEST_APP_VERION_CODE = 999
+        const val LATEST_APP_VERION_CODE = 0
         const val LATEST_APP_VERSION_NAME = "test"
         const val LATEST_APP_VERSION_FEATURES = "description"
         const val UTF = "utf-8"
