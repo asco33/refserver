@@ -5,10 +5,19 @@
   version="2.5">
   <servlet>
     <servlet-name>GameServlet</servlet-name>
-    <servlet-class>servlet.GamesServlet</servlet-class>
+    <servlet-class>gameslist.GamesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GameServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+    <servlet>
+        <servlet-name>AppVersionServlet</servlet-name>
+        <servlet-class>appversion.AppVersionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AppVersionServlet</servlet-name>
+        <url-pattern>/appversion</url-pattern>
+    </servlet-mapping>
+
 </web-app>

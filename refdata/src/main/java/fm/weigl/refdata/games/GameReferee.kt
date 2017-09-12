@@ -1,8 +1,5 @@
-package fm.weigl.refdata
+package fm.weigl.refdata.games
 
-/**
- * Created by asco on 08.07.16.
- */
 class GameReferee(val name: String, position: String) {
     var position: RefereePosition? = null
 

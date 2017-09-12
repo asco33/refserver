@@ -1,8 +1,10 @@
-package servlet
+package gameslist
 
+import ApiVersion.VERSION_KEY
+import ApiVersion.VERSION_VALUE
 import com.google.gson.Gson
 import dagger.ObjectGraph
-import di.ParserModule
+import di.ApiModule
 import parsers.RefParserMain
 import java.io.IOException
 import javax.inject.Inject
@@ -11,14 +13,9 @@ import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-/**
- * Created by asco on 13.07.16.
- */
 class GamesServlet : HttpServlet() {
 
     companion object {
-        const val VERSION_KEY = "version"
-        const val VERSION_VALUE = "1.0/080917"
         const val UTF = "utf-8"
         const val CONTENT_TYPE_JSON = "application/json"
         const val CONTENT_TYPE_TEXT = "text/plain"
@@ -30,7 +27,7 @@ class GamesServlet : HttpServlet() {
     @Inject lateinit var gson: Gson
 
     init {
-        ObjectGraph.create(ParserModule()).inject(this)
+        ObjectGraph.create(ApiModule()).inject(this)
     }
 
     @Throws(ServletException::class, IOException::class)

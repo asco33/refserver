@@ -1,8 +1,8 @@
 package parsers
 
-import fm.weigl.refdata.Game
-import fm.weigl.refdata.GameReferee
-import fm.weigl.refdata.Games
+import fm.weigl.refdata.games.Game
+import fm.weigl.refdata.games.GameReferee
+import fm.weigl.refdata.games.Games
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
@@ -11,9 +11,6 @@ import java.io.IOException
 import java.util.*
 import javax.inject.Inject
 
-/**
- * Created by asco on 08.07.16.
- */
 class RefParserMain @Inject constructor(
         private val teamParser: TeamParser,
         private val dateParser: GamedateParser,

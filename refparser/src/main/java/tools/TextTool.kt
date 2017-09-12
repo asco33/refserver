@@ -2,9 +2,6 @@ package tools
 
 import javax.inject.Inject
 
-/**
- * Created by asco on 09.07.16.
- */
 class TextTool
 @Inject
 constructor() {

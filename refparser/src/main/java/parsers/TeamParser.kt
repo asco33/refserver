@@ -1,13 +1,10 @@
 package parsers
 
 
-import fm.weigl.refdata.Team
+import fm.weigl.refdata.games.Team
 
 import javax.inject.Inject
 
-/**
- * Created by asco on 08.07.16.
- */
 class TeamParser @Inject constructor() {
 
     companion object {

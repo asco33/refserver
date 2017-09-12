@@ -9,9 +9,6 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 
-/**
- * Created by asco on 08.07.16.
- */
 class GamedateParser @Inject constructor() {
 
     companion object {

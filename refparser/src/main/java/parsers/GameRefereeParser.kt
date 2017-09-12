@@ -1,14 +1,10 @@
 package parsers
 
-import fm.weigl.refdata.GameReferee
+import fm.weigl.refdata.games.GameReferee
 import tools.TextTool
 
 import javax.inject.Inject
 
-
-/**
- * Created by asco on 09.07.16.
- */
 class GameRefereeParser @Inject constructor() {
 
     companion object {

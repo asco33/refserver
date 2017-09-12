@@ -5,7 +5,7 @@
   version="2.5">
   <servlet>
     <servlet-name>GameServlet</servlet-name>
-    <servlet-class>servlet.GamesServlet</servlet-class>
+    <servlet-class>gameslist.GamesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GameServlet</servlet-name>
