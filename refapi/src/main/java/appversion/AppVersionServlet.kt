@@ -3,8 +3,7 @@ package appversion
 import ApiVersion.VERSION_KEY
 import ApiVersion.VERSION_VALUE
 import com.google.gson.Gson
-import dagger.ObjectGraph
-import di.ApiModule
+import di.DaggerApiComponent
 import fm.weigl.refdata.appversion.AppVersion
 import java.io.IOException
 import javax.inject.Inject
@@ -29,7 +28,7 @@ class AppVersionServlet : HttpServlet() {
     val appVersion = AppVersion(LATEST_APP_VERION_CODE, LATEST_APP_VERSION_NAME, LATEST_APP_VERSION_FEATURES)
 
     init {
-        ObjectGraph.create(ApiModule()).inject(this)
+       DaggerApiComponent.builder().build().inject(this)
     }
 
     @Throws(ServletException::class, IOException::class)

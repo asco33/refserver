@@ -1,13 +1,12 @@
 package di
 
-import appversion.AppVersionServlet
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
-import gameslist.GamesServlet
 
 
-@Module(injects = arrayOf(GamesServlet::class, AppVersionServlet::class))
+@Module
 class ApiModule {
-    @Provides fun gson(): Gson = Gson()
+    @Provides
+    fun gson(): Gson = Gson()
 }

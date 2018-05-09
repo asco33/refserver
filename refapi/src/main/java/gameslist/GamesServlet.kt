@@ -3,8 +3,7 @@ package gameslist
 import ApiVersion.VERSION_KEY
 import ApiVersion.VERSION_VALUE
 import com.google.gson.Gson
-import dagger.ObjectGraph
-import di.ApiModule
+import di.DaggerApiComponent
 import parsers.RefParserMain
 import java.io.IOException
 import javax.inject.Inject
@@ -23,11 +22,13 @@ class GamesServlet : HttpServlet() {
         const val NOT_AUTHED_MSG = "Nope"
     }
 
-    @Inject lateinit var refParser: RefParserMain
-    @Inject lateinit var gson: Gson
+    @Inject
+    lateinit var refParser: RefParserMain
+    @Inject
+    lateinit var gson: Gson
 
     init {
-        ObjectGraph.create(ApiModule()).inject(this)
+        DaggerApiComponent.builder().build().inject(this)
     }
 
     @Throws(ServletException::class, IOException::class)
