@@ -8,13 +8,13 @@ import javax.inject.Inject
 class TeamParser @Inject constructor() {
 
     companion object {
-        private val TEAMS_SEPARATOR = " - "
+        private const val TEAMS_SEPARATOR = " - "
     }
 
-    fun parseTeams(teamsText: String): Array<Team> {
+    fun parseTeams(teamsText: String): Pair<Team, Team> {
 
         if (!teamsText.contains(TEAMS_SEPARATOR)) {
-            throw IllegalArgumentException("Cant parse teams " + teamsText)
+            throw IllegalArgumentException("Cant parse teams $teamsText")
         }
 
         val team0Name = teamsText.substring(0, teamsText.indexOf(TEAMS_SEPARATOR))
@@ -24,8 +24,7 @@ class TeamParser @Inject constructor() {
         val team1 = Team(team1Name)
 
 
-        return arrayOf(team0, team1)
-
+        return team0 to team1
 
     }
 

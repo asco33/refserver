@@ -25,7 +25,7 @@ class AppVersionServlet : HttpServlet() {
 
     @Inject lateinit var gson: Gson
 
-    val appVersion = AppVersion(LATEST_APP_VERION_CODE, LATEST_APP_VERSION_NAME, LATEST_APP_VERSION_FEATURES)
+    private val appVersion = AppVersion(LATEST_APP_VERION_CODE, LATEST_APP_VERSION_NAME, LATEST_APP_VERSION_FEATURES)
 
     init {
        DaggerApiComponent.builder().build().inject(this)

@@ -1,13 +1,10 @@
 package parsers
 
 
-import tools.TextTool
-
-import javax.inject.Inject
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Date
+import java.util.*
+import javax.inject.Inject
 
 class GamedateParser @Inject constructor() {
 

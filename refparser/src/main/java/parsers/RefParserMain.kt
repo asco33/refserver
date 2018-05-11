@@ -30,33 +30,26 @@ class RefParserMain @Inject constructor(
     }
 
 
-    @Throws(Exception::class) fun games() = parseGames()
+    @Throws(Exception::class)
+    fun games() = parseGames()
 
     @Throws(IOException::class)
     private fun parseGames(): Games {
-
-        val gameList = ArrayList<Game>()
 
         val doc = Jsoup.connect(URL).get()
 
         val tables = getTables(doc)
 
-        for (i in tables.indices) {
-
-            if (i == 0) continue
-
-            val e = tables[i]
-
+        val gamesList = tables.mapNotNull {
             try {
-                val game = parseGameRows(e.getElementsByTag(TR))
-                gameList.add(game)
+                parseGameRows(it.getElementsByTag(TR))
             } catch (e1: Exception) {
                 e1.printStackTrace()
+                null
             }
-
         }
 
-        return Games(gameList)
+        return Games(gamesList)
 
     }
 
@@ -81,7 +74,7 @@ class RefParserMain @Inject constructor(
 
         val referees = ArrayList<GameReferee>()
 
-        for (i in 3..rows.size - 1) {
+        for (i in 3 until rows.size) {
 
             val refString = jsoupTool.textFromElement(rows[i])
 
@@ -89,9 +82,7 @@ class RefParserMain @Inject constructor(
             referees.add(referee)
         }
 
-        val game = Game(referees, gameDay, gamePlace, teams[0], teams[1])
-
-        return game
+        return Game(referees, gameDay, gamePlace, teams.first, teams.second)
 
     }
 

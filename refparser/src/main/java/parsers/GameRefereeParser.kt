@@ -8,15 +8,15 @@ import javax.inject.Inject
 class GameRefereeParser @Inject constructor() {
 
     companion object {
-        private val SPACE = " "
+        private const val SPACE = " "
     }
 
     fun parseReferee(refereeText: String): GameReferee {
 
         val parts = refereeText.split(SPACE.toRegex(), 2).toTypedArray()
 
-        val position = parts[0]
-        val name = parts[1]
+        val position = parts.getOrElse(0, { "" })
+        val name = parts.getOrElse(1, { "" })
 
         return GameReferee(name, position)
 
