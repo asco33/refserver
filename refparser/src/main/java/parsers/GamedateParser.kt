@@ -14,6 +14,7 @@ class GamedateParser @Inject constructor() {
 
 
     private val dateFormat = SimpleDateFormat("dd.MM.yyyy HH:mm")
+            .apply { timeZone = TimeZone.getTimeZone("Europe/Berlin") }
     //    09.07.2016  15:00 Uhr
 
     @Throws(ParseException::class)

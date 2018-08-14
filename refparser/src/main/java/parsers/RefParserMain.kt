@@ -17,7 +17,6 @@ class RefParserMain @Inject constructor(
         private val refereeParser: GameRefereeParser,
         private val placeParser: GamePlaceParser,
         private val jsoupTool: JsoupTool
-
 ) {
 
     companion object {
@@ -27,6 +26,7 @@ class RefParserMain @Inject constructor(
         private val TABLE_ROW_TEAMS = 0
         private val TABLE_ROW_GAMEDAY = 1
         private val TABLE_ROW_GAMEPLACE = 2
+        private val TABLE_ROW_REFS_START = 3
     }
 
 
@@ -63,7 +63,6 @@ class RefParserMain @Inject constructor(
         val teamsText = jsoupTool.textFromElement(rows[TABLE_ROW_TEAMS])
         val teams = teamParser.parseTeams(teamsText)
 
-
         val dateText = jsoupTool.textFromElement(rows[TABLE_ROW_GAMEDAY])
 
         val gameDay = dateParser.parseDate(dateText)
@@ -74,7 +73,7 @@ class RefParserMain @Inject constructor(
 
         val referees = ArrayList<GameReferee>()
 
-        for (i in 3 until rows.size) {
+        for (i in TABLE_ROW_REFS_START until rows.size) {
 
             val refString = jsoupTool.textFromElement(rows[i])
 
@@ -83,7 +82,5 @@ class RefParserMain @Inject constructor(
         }
 
         return Game(referees, gameDay, gamePlace, teams.first, teams.second)
-
     }
-
 }

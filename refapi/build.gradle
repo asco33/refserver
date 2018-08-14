@@ -8,7 +8,7 @@ apply plugin: 'org.akhikhl.gretty'
 version 'unspecified'
 
 buildscript {
-    ext.kotlin_version = '1.2.41'
+    ext.kotlin_version = '1.2.50'
 
     repositories {
         mavenCentral()
@@ -57,6 +57,8 @@ appengine {
     deploy {
         stopPreviousVersion = true
         promote = true
+        version = "GCLOUD_CONFIG"
+        project = "GCLOUD_CONFIG"
     }
 
 }
