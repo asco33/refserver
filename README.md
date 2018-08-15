@@ -8,7 +8,7 @@ No further steps required to build the project, just run it.
 
 ## License
 
-    Copyright 2017 Florian Weigl
+    Copyright 2017-2018 Florian Weigl
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
