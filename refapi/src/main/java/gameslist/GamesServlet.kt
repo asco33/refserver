@@ -5,6 +5,7 @@ import ApiVersion.VERSION_VALUE
 import com.google.gson.Gson
 import di.DaggerApiComponent
 import parsers.RefParserMain
+import testgames.TestGames
 import java.io.IOException
 import javax.inject.Inject
 import javax.servlet.ServletException
@@ -35,7 +36,8 @@ class GamesServlet : HttpServlet() {
         resp.addHeader(VERSION_KEY, VERSION_VALUE)
 
         try {
-            val games = refParser.games()
+//            val games = refParser.games()
+            val games = TestGames().testGames()
             val serializedGames = gson.toJson(games)
             resp.contentType = CONTENT_TYPE_JSON
             resp.setStatus(HttpServletResponse.SC_OK)

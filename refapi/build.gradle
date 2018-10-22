@@ -57,8 +57,8 @@ appengine {
     deploy {
         stopPreviousVersion = true
         promote = true
-        version = "GCLOUD_CONFIG"
-        project = "GCLOUD_CONFIG"
+        appengine.deploy.projectId = 'GCLOUD_CONFIG'
+        appengine.deploy.version = 'GCLOUD_CONFIG'
     }
 
 }
